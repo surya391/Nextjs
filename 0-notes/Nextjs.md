@@ -178,3 +178,62 @@ export default function ProductReview({ params }: { params: { productId: string;
   return <h1>Review {params.reviewId} for Product {params.productId}</h1>;
 }
 ```
+# Routing System Overview
+
+## Catch-All Segments
+
+Example URL:  
+localhost:3000/docs/features1/concept
+
+```shell
+Copy
+Edit
+```
+
+### Structure:
+
+```
+Feature1
+├── Concept1
+├── Concept2
+├── Concept3 // Docs for F1 C1
+├── Concept4
+└── Concept5
+Feature2
+Feature3
+Feature4
+Feature5
+```
+
+```yaml
+Copy
+Edit
+```
+
+---
+
+## Private Folders
+
+Private folders are used for internal project organization and are **excluded** from the routing system.
+
+### Rules:
+- Prefix the folder name with an underscore (`_`) to mark it as private.
+- The folder and **all** its subfolders will be excluded from routing.
+
+### Benefits:
+- Keep UI logic separate from routing logic.
+- Maintain a consistent organization for internal files.
+- Group related files more easily in your code editor.
+- Prevent naming conflicts with future Next.js conventions.
+
+---
+
+## Route Groups
+
+Route groups allow logical organization of routes without affecting the URL structure.
+
+### Use Cases:
+- Implementing authentication routes:
+  - Register
+  - Login
+  - Forget Password
